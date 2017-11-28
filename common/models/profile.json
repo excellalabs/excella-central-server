@@ -1,0 +1,33 @@
+{
+  "name": "profile",
+  "plural": "profiles",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "avatarUrl": {
+      "type": "string"
+    },
+    "primarySkill": {
+      "type": "string",
+      "required": true
+    },
+    "funFact": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
