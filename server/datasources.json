@@ -2,5 +2,15 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "mongo-test": {
+    "host": "ds129946.mlab.com",
+    "port": 29946,
+    "url": "mongodb://central-admin:central-admin-2017@ds129946.mlab.com:29946/labs-test",
+    "database": "labs-test",
+    "password": "central-admin-2017",
+    "name": "mongo-test",
+    "user": "central-admin",
+    "connector": "mongodb"
   }
 }
