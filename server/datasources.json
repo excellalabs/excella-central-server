@@ -5,7 +5,7 @@
   },
   "mongo-test": {
     "name": "mongo-test",
-    "url": "mongodb://${MONGODB_USER}:${MONGODB_PASSWORD}@ds129946.mlab.com:29946/labs-test",
+    "url": "${MONGODB_URL}",
     "connector": "mongodb"
   }
 }

@@ -36,11 +36,11 @@
     "public": false
   },
   "account": {
-    "dataSource": "db",
+    "dataSource": "mongo-test",
     "public": true
   },
   "profile": {
-    "dataSource": "db",
+    "dataSource": "mongo-test",
     "public": true
   }
 }

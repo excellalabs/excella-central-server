@@ -14,15 +14,6 @@ USER nodejs
 
 WORKDIR /usr/src/app
 
-ARG MONGODB_USER=$MONGODB_USER
-ENV MONGODB_USER=$MONGODB_USER
-
-ARG MONGODB_PASSWORD=$MONGODB_PASSWORD
-ENV MONGODB_PASSWORD=$MONGODB_PASSWORD
-
-ARG MONGODB_URI="mongodb://${MONGODB_USER}:${MONGODB_PASSWORD}@ds129946.mlab.com:29946/labs-test"
-ENV MONGODB_URI=$MONGODB_URI
-
 COPY package.json .
 ENV NODE_ENV production
 RUN npm install --only=production
@@ -33,4 +24,5 @@ EXPOSE 3000
 
 COPY . .
 
-CMD [ "dumb-init", "npm", "start" ]
+ENTRYPOINT ["dumb-init", "--"]
+CMD ["npm", "start"]
