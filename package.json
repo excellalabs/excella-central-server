@@ -17,7 +17,6 @@
     "lint": "eslint .",
     "start": "node .",
     "posttest": "npm run lint && nsp check",
-
     "docker:build": "cross-conf-env docker image build . -t $npm_package_config_imageRepo:$npm_package_version",
     "postdocker:build": "npm run docker:tag",
     "docker:tag": "cross-conf-env docker image tag $npm_package_config_imageRepo:$npm_package_version $npm_package_config_imageRepo:latest",
@@ -34,7 +33,6 @@
     "docker:debugmessage": "echo Docker Debug Completed Successfully! Hit Ctrl+C to terminate log tailing.",
     "predocker:debug": "run-s -c docker:build docker:run",
     "docker:debug": "run-s -cs docker:open:win docker:open:mac docker:debugmessage docker:taillogs",
-
     "aws:login": "with-package aws ecr get-login --no-include-email --region pkg.awsRegion",
     "aws:deploy": "with-package docker run --env-file ./.env silintl/ecs-deploy -c pkg.awsEcsCluster -n pkg.awsService -i pkg.imageRepo:latest -r pkg.awsRegion --timeout 1000",
     "aws:release": "npm run aws:login && npm run docker:publish && npm run aws:deploy"
@@ -56,7 +54,8 @@
     "eslint": "^3.17.1",
     "eslint-config-loopback": "^8.0.0",
     "npm-run-all": "^4.1.2",
-    "nsp": "^2.1.0"
+    "nsp": "^2.1.0",
+    "with-package": "^0.2.0"
   },
   "repository": {
     "type": "git",
