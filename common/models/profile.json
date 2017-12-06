@@ -28,13 +28,6 @@
   },
   "validations": [],
   "relations": {},
-  "acls": [
-    {
-      "accessType": "READ",
-      "principalType": "ROLE",
-      "principalId": "$authenticated",
-      "permission": "ALLOW"
-    }
-  ],
+  "acls": [],
   "methods": {}
 }
