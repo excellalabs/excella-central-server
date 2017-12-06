@@ -3,17 +3,46 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 
+var http = require('http');
+
 var app = module.exports = loopback();
 
-app.start = function() {
-  // start the web server
-  return app.listen(function() {
+function redirector(application) {
+  return (req, res) => {
+    if(req.headers['x-forwarded-proto'] === 'https' || req.headers['x-forwarded-port'] === '443') {
+      application(req, res)
+    } else if (req.url.indexOf('/healthCheck') === 0) {
+      res.end('Hello, world!')
+    } else {
+      res.writeHead(301,
+        { Location: `https://central.excellalabs.com${req.url}` }
+      )
+      res.end()
+    }
+  }
+}
+
+app.start = function(forceHttps) {
+  if(forceHttps === undefined) {
+    forceHttps = process.env.NODE_ENV === 'production';
+  }
+
+  const protocol = forceHttps ? 'https' : 'http';
+  const baseUrl = `${protocol}://${app.get('host')}:${app.get('port')}`;
+
+  let server;
+  if(forceHttps) {
+    server = http.createServer(redirector(app));
+  } else {
+    server = http.createServer(app)
+  }
+
+  return server.listen(app.get('port'), function() {
     app.emit('started');
-    var baseUrl = app.get('url').replace(/\/$/, '');
-    console.log('Web server listening at: %s', baseUrl);
+    console.log(`Web server listening at: ${baseUrl}`);
     if (app.get('loopback-component-explorer')) {
-      var explorerPath = app.get('loopback-component-explorer').mountPath;
-      console.log('Browse your REST API at %s%s', baseUrl, explorerPath);
+      const explorerPath = app.get('loopback-component-explorer').mountPath;
+      console.log(`Browse your REST API at ${baseUrl}${explorerPath}`);
     }
   });
 };
