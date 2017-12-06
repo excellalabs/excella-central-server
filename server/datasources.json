@@ -2,5 +2,10 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "mongo-test": {
+    "name": "mongo-test",
+    "url": "${MONGODB_URL}",
+    "connector": "mongodb"
   }
 }
