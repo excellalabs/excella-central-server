@@ -35,11 +35,9 @@
     "predocker:debug": "run-s -c docker:build docker:run",
     "docker:debug": "run-s -cs docker:open:win docker:open:mac docker:debugmessage docker:taillogs",
 
-    "aws:login:win": "cross-conf-env aws ecr get-login --no-include-email --region $npm_package_config_awsRegion > dockerLogin.cmd && call dockerLogin.cmd && del dockerLogin.cmd",
-    "aws:login:mac": "eval $(aws ecr get-login --no-include-email --region $npm_package_config_awsRegion)",
-    "aws:login": "run-p -cs aws:login:win aws:login:mac",
-    "aws:deploy": "cross-conf-env docker run --env-file ./.env silintl/ecs-deploy -c $npm_package_config_awsEcsCluster -n $npm_package_config_awsService -i $npm_package_config_imageRepo:latest -r $npm_package_config_awsRegion --timeout 1000",
-    "aws:release": "run-s -cs aws:login docker:publish aws:deploy"
+    "aws:login": "with-package aws ecr get-login --no-include-email --region pkg.awsRegion",
+    "aws:deploy": "with-package docker run --env-file ./.env silintl/ecs-deploy -c pkg.awsEcsCluster -n pkg.awsService -i pkg.imageRepo:latest -r pkg.awsRegion --timeout 1000",
+    "aws:release": "npm run aws:login && npm run docker:publish && npm run aws:deploy"
   },
   "dependencies": {
     "compression": "^1.0.3",

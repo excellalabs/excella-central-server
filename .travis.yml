@@ -14,3 +14,8 @@ before_script:
 - pip install awscli --upgrade --user
 script:
 - npm run docker:build
+deploy:
+  provider: script
+  script: chmod +x scripts/deploy.sh && scripts/deploy.sh
+  on:
+    branch: master
