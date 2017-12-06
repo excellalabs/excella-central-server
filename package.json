@@ -18,7 +18,8 @@
     "start": "node .",
     "posttest": "npm run lint && nsp check",
 
-    "docker:build": "cross-conf-env docker image build --build-arg MONGODB_URL=$MONGODB_URL . -t $npm_package_config_imageRepo:$npm_package_version",
+    "docker:buildHelper": "cross-conf-env docker image build . -t $npm_package_config_imageRepo:$npm_package_version --build-arg MONGODB_URL=\"$MONGODB_URL\"",
+    "docker:build": "dotenv -e .env npm run docker:buildHelper",
     "postdocker:build": "npm run docker:tag",
     "docker:tag": "cross-conf-env docker image tag $npm_package_config_imageRepo:$npm_package_version $npm_package_config_imageRepo:latest",
     "docker:run": "run-s -c docker:clean docker:runHelper",
@@ -55,6 +56,7 @@
   },
   "devDependencies": {
     "cross-conf-env": "^1.1.2",
+    "dotenv-cli": "^1.4.0",
     "eslint": "^3.17.1",
     "eslint-config-loopback": "^8.0.0",
     "npm-run-all": "^4.1.2",
