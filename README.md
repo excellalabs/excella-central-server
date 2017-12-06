@@ -1,4 +1,4 @@
-# Excella Central Server
+# Excella Central Server [![Build Status](https://travis-ci.org/excellalabs/excella-central-server.svg?branch=master)](https://travis-ci.org/excellalabs/excella-central-server)
 
 ## Tech Stack
 
