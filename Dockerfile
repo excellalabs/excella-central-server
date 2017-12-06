@@ -18,6 +18,8 @@ COPY package.json .
 ENV NODE_ENV production
 RUN npm install --only=production
 
+ENV MONGODB_URL=$MONGODB_URL
+
 ENV HOST "0.0.0.0"
 ENV PORT 3000
 EXPOSE 3000
