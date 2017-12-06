@@ -18,6 +18,7 @@ COPY package.json .
 ENV NODE_ENV production
 RUN npm install --only=production
 
+ARG MONGODB_URL=mongodb://localhost:27017/labs-test
 ENV MONGODB_URL=$MONGODB_URL
 
 ENV HOST "0.0.0.0"
