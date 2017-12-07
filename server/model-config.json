@@ -13,8 +13,14 @@
       "./mixins"
     ]
   },
+  "Email": {
+    "dataSource": "email-source"
+  },
   "User": {
-    "dataSource": "db"
+    "dataSource": "db",
+    "options": {
+      "emailVerificationRequired": true
+    }
   },
   "AccessToken": {
     "dataSource": "db",
@@ -37,7 +43,10 @@
   },
   "account": {
     "dataSource": "mongo-test",
-    "public": true
+    "public": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
   },
   "profile": {
     "dataSource": "mongo-test",
