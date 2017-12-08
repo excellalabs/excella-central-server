@@ -4,8 +4,8 @@
     "connector": "memory"
   },
   "mongo-test": {
-    "name": "mongo-test",
     "url": "${MONGODB_URL}",
+    "name": "mongo-test",
     "connector": "mongodb"
   }
 }
