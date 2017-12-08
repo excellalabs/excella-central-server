@@ -14,28 +14,28 @@
     ]
   },
   "User": {
-    "dataSource": "db",
+    "dataSource": "mongo-test",
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "mongo-test",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "mongo-test",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "mongo-test",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "mongo-test",
     "public": false
   },
   "account": {
