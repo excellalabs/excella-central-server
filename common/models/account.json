@@ -28,6 +28,13 @@
       "principalId": "$everyone",
       "permission": "ALLOW",
       "property": "checkAccountExists"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "checkProfileExists"
     }
   ],
   "methods": {}

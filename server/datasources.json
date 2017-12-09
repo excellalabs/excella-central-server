@@ -4,7 +4,7 @@
     "connector": "memory"
   },
   "mongo-test": {
-    "url": "${MONGODB_URL}",
+    "url": "mongodb://test-admin:excellalabs2017@ds129946.mlab.com:29946/labs-test",
     "name": "mongo-test",
     "connector": "mongodb"
   }
