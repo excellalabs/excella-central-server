@@ -15,14 +15,19 @@
       "type": "string",
       "required": true
     },
-    "avatarUrl": {
+    "photoUrl": {
       "type": "string"
     },
-    "primarySkill": {
-      "type": "string",
-      "required": true
+    "primarySkillset": {
+      "type": "string"
     },
-    "funFact": {
+    "serviceArea": {
+      "type": "string"
+    },
+    "clientAssignment": {
+      "type": "string"
+    },
+    "email": {
       "type": "string"
     }
   },
