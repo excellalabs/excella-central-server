@@ -17,7 +17,7 @@
     "lint": "eslint .",
     "start": "node .",
     "posttest": "npm run lint && nsp check",
-    "docker:buildHelper": "cross-conf-env docker image build . -t $npm_package_config_imageRepo:$npm_package_version --build-arg MONGODB_URL=\"$MONGODB_URL\"",
+    "docker:buildHelper": "cross-conf-env docker image build . -t $npm_package_config_imageRepo:$npm_package_version --build-arg MONGODB_URL=\"$MONGODB_URL\" EMAIL_LOGIN=\"$EMAIL_LOGIN\" EMAIL_PASS=\"$EMAIL_PASS\"",
     "docker:build": "dotenv -e .env npm run docker:buildHelper",
     "postdocker:build": "npm run docker:tag",
     "docker:tag": "cross-conf-env docker image tag $npm_package_config_imageRepo:$npm_package_version $npm_package_config_imageRepo:latest",
