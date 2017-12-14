@@ -42,14 +42,16 @@
     "dataSource": "mongo-test",
     "public": true,
     "options": {
-      "strictObjectIDCoercion": true
+      "strictObjectIDCoercion": true,
+      "allowExtendedOperators": true
     }
   },
   "profile": {
     "dataSource": "mongo-test",
     "public": true,
     "options": {
-      "strictObjectIDCoercion": true
+      "strictObjectIDCoercion": true,
+      "allowExtendedOperators": true
     }
   }
 }
