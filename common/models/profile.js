@@ -7,9 +7,7 @@ module.exports = function(Profile) {
         return cb(null, instance);
       });
     } else {
-      searchText = '/' + searchText + '/';
       Profile.find({where: {$text: {search: searchText}}}, function(err, instance) {
-        console.log(searchText);
         return cb(null, instance);
       });
     }
