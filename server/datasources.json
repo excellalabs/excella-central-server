@@ -6,7 +6,8 @@
   "mongo-test": {
     "url": "${MONGODB_URL}",
     "name": "mongo-test",
-    "connector": "mongodb"
+    "connector": "mongodb",
+    "allowExtendedOperators": true
   },
   "email-source": {
     "name": "mail",
