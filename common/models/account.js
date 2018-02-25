@@ -42,7 +42,7 @@ module.exports = function(Account) {
   );
 
   Account.on('resetPasswordRequest', function(info) {
-    var text = 'Copy and paste this password reset token into the "Password Reset" screen of Excella Central: '
+    var text = 'Copy and paste this reset token into the Reset Password form in Excella Central: '
      + info.accessToken.id;
 
     Account.app.models.Email.send({
