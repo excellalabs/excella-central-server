@@ -52,6 +52,9 @@
       "strictObjectIDCoercion": true
     }
   },
+  "Email": {
+    "dataSource": "email-source"
+  },
   "organization": {
     "dataSource": "mongo-test",
     "public": true
