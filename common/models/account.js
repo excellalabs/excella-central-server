@@ -1,5 +1,4 @@
 'use strict';
-
 module.exports = function(Account) {
   var app = require('../../server/server');
 
@@ -41,4 +40,19 @@ module.exports = function(Account) {
       returns: { arg: 'doesProfileExist', type: 'boolean'}
     }
   );
+
+  Account.on('resetPasswordRequest', function(info) {
+    var text = 'Copy and paste this reset token into the Reset Password form in Excella Central: '
+     + info.accessToken.id;
+
+    Account.app.models.Email.send({
+      to: info.email,
+      from: info.email,
+      subject: 'Password reset',
+      text: text
+    }, function(err) {
+      if (err) return console.log('> error sending password reset email');
+      console.log('> sending password reset email to:', info.email);
+    });
+  });
 };
