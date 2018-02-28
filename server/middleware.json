@@ -40,7 +40,13 @@
       ]
     }
   },
-  "files": {},
+  "files": {
+    "loopback#static": {
+      "name": "download",
+      "paths": ["/download"],
+      "params": "$!../client"
+    }
+  },
   "final": {
     "loopback#urlNotFound": {}
   },
