@@ -16,7 +16,8 @@
   "User": {
     "dataSource": "mongo-test",
     "options": {
-      "strictObjectIDCoercion": true
+      "strictObjectIDCoercion": true,
+      "emailVerificationRequired": true
     }
   },
   "AccessToken": {
