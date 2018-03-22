@@ -41,5 +41,8 @@
       "permission": "DENY"
     }
   ],
-  "methods": {}
+  "methods": {},
+  "scope": {
+    "order": "firstName"
+  }
 }
