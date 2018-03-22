@@ -1,8 +1,6 @@
 {
   "initial:before": {
-    "loopback#favicon": {
-      "params": "$!../client/assets/favicon.ico"
-    }
+    "loopback#favicon": {}
   },
   "initial": {
     "compression": {},
@@ -41,18 +39,6 @@
         "${restApiRoot}"
       ]
     }
-  },
-  "files": {
-    "loopback#static": [{
-      "name": "download",
-      "paths": ["/download"],
-      "params": "$!../client"
-    },
-    {
-      "name": "instructions",
-      "paths": ["/download/instructions"],
-      "params": "$!../client/instructions"
-    }]
   },
   "final": {
     "loopback#urlNotFound": {}
