@@ -22,4 +22,17 @@ module.exports = function(Profile) {
     }
   );
 
+  Profile.getAllOrderedByFirstName = function(cb) {
+    Profile.find({order: 'firstName ASC'}, function(err, instance) {
+      return cb(null, instance);
+    });
+  }
+
+  Profile.remoteMethod (
+    'getAllOrderedByFirstName',
+    {
+      http: { path: '/getAllOrderedByFirstName', verb: 'get' },
+      returns: { arg: 'profiles', type: 'array'}
+    }
+  );
 };
