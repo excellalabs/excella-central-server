@@ -43,6 +43,6 @@
   ],
   "methods": {},
   "scope": {
-    "order": "firstName"
+    "order": ["firstName", "lastName"]
   }
 }
