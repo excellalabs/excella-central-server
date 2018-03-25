@@ -71,12 +71,10 @@ module.exports = function(Account) {
       user: Account
     };
 
-    userInstance.verify(options, function(err, response, next) {
-        if (err) return next(err);
+    userInstance.verify(options, function(err, response) {
         
         console.log('> verification email sent:', response);
-
-        return response;
     });
+    next();
   });
 };
