@@ -1,4 +1,6 @@
 'use strict';
+var config = require('../../server/config.json');
+var path = require('path');
 module.exports = function(Account) {
   var app = require('../../server/server');
 
@@ -41,6 +43,25 @@ module.exports = function(Account) {
     }
   );
 
+  Account.emailVerified = function(email, cb) {
+    if (!email || email === '') {
+      return cb(null, false);
+    }
+    Account.findOne({where: {email: email}}, function(err, instance) {
+      var emailVerified = !err && instance.emailVerified;
+      return cb(null, emailVerified);
+    });
+  };
+
+  Account.remoteMethod (
+    'emailVerified',
+    {
+      http: { path: '/emailVerified', verb: 'get' },
+      accepts: { arg: 'email', type: 'string', http: { source: 'query' } },
+      returns: { arg: 'verified', type: 'boolean'}
+    }
+  );
+
   Account.on('resetPasswordRequest', function(info) {
     var text = 'Copy and paste this reset token into the Reset Password form in Excella Central: '
      + info.accessToken.id;
@@ -54,5 +75,24 @@ module.exports = function(Account) {
       if (err) return console.log('> error sending password reset email');
       console.log('> sending password reset email to:', info.email);
     });
+  });
+
+  Account.afterRemote('create', function(context, userInstance, next) {
+    console.log('> user.afterRemote triggered');
+
+    var options = {
+      type: 'email',
+      to: userInstance.email,
+      from: 'central@excella.com',
+      subject: 'Thanks for registering.',
+      template: path.resolve(__dirname, '../../server/views/verify.ejs'),
+      redirect: '/verified',
+      user: Account
+    };
+
+    userInstance.verify(options, function(err, response) { 
+      console.log('> verification email sent:', response);
+    });
+    next();
   });
 };
