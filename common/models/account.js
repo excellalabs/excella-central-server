@@ -43,6 +43,25 @@ module.exports = function(Account) {
     }
   );
 
+  Account.emailVerified = function(email, cb) {
+    if (!email || email === '') {
+      return cb(null, false);
+    }
+    Account.findOne({where: {email: email}}, function(err, instance) {
+      var emailVerified = !err && instance.emailVerified;
+      return cb(null, emailVerified);
+    });
+  };
+
+  Account.remoteMethod (
+    'emailVerified',
+    {
+      http: { path: '/emailVerified', verb: 'get' },
+      accepts: { arg: 'email', type: 'string', http: { source: 'query' } },
+      returns: { arg: 'verified', type: 'boolean'}
+    }
+  );
+
   Account.on('resetPasswordRequest', function(info) {
     var text = 'Copy and paste this reset token into the Reset Password form in Excella Central: '
      + info.accessToken.id;
