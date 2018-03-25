@@ -71,9 +71,8 @@ module.exports = function(Account) {
       user: Account
     };
 
-    userInstance.verify(options, function(err, response) {
-        
-        console.log('> verification email sent:', response);
+    userInstance.verify(options, function(err, response) { 
+      console.log('> verification email sent:', response);
     });
     next();
   });
