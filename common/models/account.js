@@ -48,7 +48,7 @@ module.exports = function(Account) {
       return cb(null, false);
     }
     Account.findOne({where: {email: email}}, function(err, instance) {
-      var emailVerified = !err && instance.emailVerified;
+      var emailVerified = !err && instance && instance.emailVerified;
       return cb(null, emailVerified);
     });
   };
