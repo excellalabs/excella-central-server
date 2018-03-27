@@ -6,7 +6,20 @@
   "mongo-test": {
     "url": "${MONGODB_URL}",
     "name": "mongo-test",
-    "connector": "mongodb",
-    "allowExtendedOperators": true
+    "connector": "mongodb"
+  },
+  "email-source": {
+    "name": "mail",
+    "connector": "mail",
+    "transports": [{
+      "type": "SMTP",
+      "host": "smtp.gmail.com",
+      "secure": true,
+      "port": 465,
+      "auth": {
+        "user": "${EMAIL_LOGIN}",
+        "pass": "${EMAIL_PASS}"
+      }
+    }]
   }
 }
