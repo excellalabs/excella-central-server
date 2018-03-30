@@ -42,7 +42,11 @@ module.exports = function(Account) {
   );
 
   Account.on('resetPasswordRequest', function(info) {
-    var text = `In order to reset your password for Excella Central click on this link: <a href="https://central.excellalabs.com/#/reset-password-form/token/${info.accessToken.id}">Reset Password</a>.\n\nIf you didn't request this reset, please ignore this email.\n\n\Have a lovely day,\n\n\The JavaScript Specialty Area`
+    var text = `In order to reset your password for Excella Central, click on the following link:\n\n
+    https://central.excellalabs.com/#/reset-password-form/token/${info.accessToken.id}"\n\n
+    If you didn't request this reset, please ignore this email.\n\n
+    Have a lovely day,\n\n
+    The JavaScript Specialty Area`
 
     Account.app.models.Email.send({
       to: info.email,
