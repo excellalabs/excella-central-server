@@ -42,16 +42,15 @@ module.exports = function(Account) {
   );
 
   Account.on('resetPasswordRequest', function(info) {
-    var text = 'Copy and paste this reset token into the Reset Password form in Excella Central: '
-     + info.accessToken.id;
+    var text = `In order to reset your password for Excella Central click on this link: <a href="https://central.excellalabs.com/#/reset-password-form/token/${info.accessToken.id}">Reset Password</a>.\n\nIf you didn't request this reset, please ignore this email.\n\n\Have a lovely day,\n\n\The JavaScript Specialty Area`
 
     Account.app.models.Email.send({
       to: info.email,
       from: info.email,
-      subject: 'Password reset',
+      subject: 'Excella Central Password Reset',
       text: text
     }, function(err) {
-      if (err) return console.log('> error sending password reset email');
+      if (err) return console.log('> error ssending password reset email');
       console.log('> sending password reset email to:', info.email);
     });
   });
