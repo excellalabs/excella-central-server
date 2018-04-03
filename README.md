@@ -2,10 +2,11 @@
 
 Excella Central is a project developed by the JavaScript Specialty Area of Excella Labs. The purpose is to bring Excellians together, familiarizing employees with each other in a fun & interactive way. Using Ionic Pro, we have created a native in-house mobile app for iOS & Android, as well as a Progressive Web App (which can be found at https://central.excellalabs.com).
 
-This Node server works in conjunction with our Ionic front-end at https://github.com/excellalabs/excella-central.
+This LoopBack server works in conjunction with our Ionic front-end at https://github.com/excellalabs/excella-central.
 
 ## Technology Stack
 
+- Node
 - LoopBack
 - MongoDB (hosted by mLab)
 - Docker
@@ -20,8 +21,9 @@ This Node server works in conjunction with our Ionic front-end at https://github
 ## Development
 
 1. Create a `.env` file in root directory with:
-    - `NODE_ENV=local`
-    - `MONGODB_URL=mongodb://<dbuser>:<dbpassword>@ds129946.mlab.com:29946/labs-test` (be sure to replace `<dbuser>` and `<dbpassword>` with database login info)
+    - `MONGODB_URL=mongodb://<dbuser>:<dbpassword>@ds163126-a0.mlab.com:63126,ds163126-a1.mlab.com:63126/excella-central?replicaSet=rs-ds163126` (be sure to replace `<dbuser>` and `<dbpassword>` with database login info)
+    - `EMAIL_LOGIN=<email>` where `<email>` is the name of the password reset email
+    - `EMAIL_PASSWORD=<emailpassword>` where `<emailpassword>` is the password for the password reset email
 2. In terminal, run `npm run docker:debug`. This will build the docker image and open up a browser window with the Node server.
 3. Add `/explorer` to the end of the URL. You should see the LoopBack API Explorer.
 4. Before running any queries against the database, you will have to authenticate yourself via the Login API:
