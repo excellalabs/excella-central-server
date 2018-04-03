@@ -33,3 +33,9 @@ This LoopBack server works in conjunction with our Ionic front-end at https://gi
 5. Once you've completed step 4, try running a GET against the `/profiles` object. If you receive data in the Response Body, then you are ready to start contributing!
 
 NOTE: To kill/stop the running docker image, terminate the process and then run `docker stop excella-central-server`.
+
+For more information on how the server code works, check out the well-written [LoopBack documentation](https://loopback.io/doc/en/lb3/index.html).
+
+## Contributing
+
+If you'd like to contribute to Excella Central, check out our [Waffle.io scrum board](https://waffle.io/excellalabs/excella-central) to see what's in progress and what we'd like to accomplish in the future. Bugs, issues, and enhancements can be submitted to this GitHub repo as well.
