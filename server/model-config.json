@@ -21,7 +21,14 @@
   },
   "AccessToken": {
     "dataSource": "mongo-test",
-    "public": false
+    "public": false,
+    "relations": {
+      "user": {
+        "type": "belongsTo",
+        "model": "account",
+        "foreignKey": "userId"
+      }
+    }
   },
   "ACL": {
     "dataSource": "mongo-test",

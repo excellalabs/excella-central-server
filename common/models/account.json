@@ -3,8 +3,10 @@
   "plural": "accounts",
   "base": "User",
   "idInjection": true,
+  "ttl": -1,
   "options": {
-    "validateUpsert": true
+    "validateUpsert": true,
+    "allowEternalTokens": true
   },
   "properties": {
     "isAdmin": {
