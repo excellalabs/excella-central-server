@@ -2,10 +2,11 @@
 
 var loopback = require('loopback');
 var boot = require('loopback-boot');
-
+//var AuthenticationController = require('./controllers/authentication');
 var http = require('http');
-
+//var passport = require('./sso/passport');
 var app = module.exports = loopback();
+//var ssoAuth = passport.authenticate('saml', {session: false});
 
 function redirector(application) {
   return (req, res) => {
@@ -21,6 +22,10 @@ function redirector(application) {
     }
   }
 }
+
+//app.get('/ssoauth', ssoAuth, AuthenticationController.ssoAuthentication);
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.start = function(forceHttps) {
   if(forceHttps === undefined) {
@@ -46,6 +51,8 @@ app.start = function(forceHttps) {
     }
   });
 };
+
+
 
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.

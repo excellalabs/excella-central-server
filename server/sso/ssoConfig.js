@@ -1,0 +1,23 @@
+var entryPoint = 'https://sso.jumpcloud.com/saml2/excellacentral';
+var issuer = 'https://localhost:8100/excellacentral';
+var callbackUrl = 'https://localhost:8101/api/auth/login';
+var cert = 'MIIDojCCAooCCQCR6CUmOgkm+zANBgkqhkiG9w0BAQsFADCBkjELMAkGA1UEBhMC' +
+'VVMxETAPBgNVBAgMCFZpcmdpbmlhMRMwEQYDVQQHDApCbGFja3NidXJnMRAwDgYD' +
+'VQQKDAdFeGNlbGxhMQswCQYDVQQLDAJYQzEQMA4GA1UEAwwHRXhjZWxsYTEqMCgG' +
+'CSqGSIb3DQEJARYbbWF0dGhldy5yYXRsaWZmQGV4Y2VsbGEuY29tMB4XDTE4MDkx' +
+'MzE0NTYwOVoXDTIxMDkxMjE0NTYwOVowgZIxCzAJBgNVBAYTAlVTMREwDwYDVQQI' +
+'DAhWaXJnaW5pYTETMBEGA1UEBwwKQmxhY2tzYnVyZzEQMA4GA1UECgwHRXhjZWxs' +
+'YTELMAkGA1UECwwCWEMxEDAOBgNVBAMMB0V4Y2VsbGExKjAoBgkqhkiG9w0BCQEW' +
+'G21hdHRoZXcucmF0bGlmZkBleGNlbGxhLmNvbTCCASIwDQYJKoZIhvcNAQEBBQAD' +
+'ggEPADCCAQoCggEBAPQnPVu9Xv9w0Mhm3B1Iso1nVIJ7W81Kybu0gYBr8uAk7HcK' +
+'+ /tchhKLju0a7gOdcqhDL7lB5M3wGU6FYmRIAW8k1hBbgFz8NhB1ZkWtLu5gqTpA' +
+'qXIajb63EZj5RJ5QgBqi056VHFpNld3QgpZaAyWFTVV9SU9TPoUhqSRpogm0K9nl' +
+'RrFE8n4QxuzJRwLHTyugx5bSxm + 2JXYYn/uPU4gFldOikpaZ2lSHKnArRtlcqI2K' +
+'vF0gaktgByF9bJoRNFCE6GZ2Z/kIyU4cwrdkXB0TvICZcYpzoTlmBsjh1gS2nL2C' +
+'2S1JohIsOZGYUvEkvxbtsVzm / ikfia3QS + zldKMCAwEAATANBgkqhkiG9w0BAQsF' +
+'AAOCAQEAqhJwKwmCk7BZzmWPrOEhLs9WJW2ANYAAsDlMb8i2nID8p6 + elBTZTC / L' +
+'sfFcAIM08pbeo / QBy1DInNLCGhoz32GCqwaoT4m6vrfPM2TpnYDCHpMpufSALnU0' +
+'ayQei2bXUoDapO4IUWrSlxRY53XO4 / 4x1mHrzM2mM3YBOVIP22Ogp2etOKCzR/JH' +
+'zAeOOeqzA26RHmbMRLFWHBSwbECp7CUrFCRr6uz2aCQN859k7taxk7nZv4g51yMa' +
+'W6Lgk6Hs67ILrgCehIpOsz + Gu / XUJACrL8Wzrm / g4BoofzcHH4d++utnTke8R36E' +
+'3zudv3 / 8g5edLkN9ie0X6NwmpiM6DA== ';
